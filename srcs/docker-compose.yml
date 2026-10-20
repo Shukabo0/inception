@@ -17,6 +17,22 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
+  wordpress:
+    build: requirements/wordpress
+    image: wordpress:inception
+    container_name: wordpress
+    env_file: .env
+    secrets:
+      - db_password
+      - credentials
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - inception
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    restart: unless-stopped
 
 volumes:
   mariadb_data:
@@ -25,6 +41,12 @@ volumes:
       type: none
       o: bind
       device: /home/joseo/data/mariadb
+  wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/joseo/data/wordpress
 
 networks:
   inception:
@@ -35,4 +57,5 @@ secrets:
     file: ../secrets/db_password.txt
   db_root_password:
     file: ../secrets/db_root_password.txt
-
+  credentials:
+    file: ../secrets/credentials.txt
