@@ -1,5 +1,44 @@
 *This project has been created as part of the 42 curriculum by joseo.*
 
+# Description
+
+Using docker make containers that use NGINX, Wordpress + PHP and MariaDB to manage containers on a vm.
+
+Learn the difference between dockers and VM.
+
+
+# Instructions
+
+In the VM run
+
+To setup/update the docker container.
+```shell
+docker compose -f srcs/docker-compose.yml up -d --build
+```
+
+To check the status or the current docker threads that are running.
+```shell
+docker ps
+
+docker logs
+```
+
+To check volumes
+```shell
+docker volume ls
+
+docker volume inspect
+
+docker inspect mariadb --format '{{json .Mounts}}' | python3 -m json.tool
+```
+
+To stop the current threads
+```shell
+
+docker stop
+```
+
+
 # Resources
 [docker](https://docs.docker.com/get-started/docker-overview/) learning docker.
 [Containers](https://wizardzines.com/zines/containers/) How containers work.
