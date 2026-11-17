@@ -2,7 +2,7 @@
 set -e
 
 : "${MYSQL_DATABASE:?MYSQL_DATABASE is not set}"
-: "${MYSQL_DATABASE:?MYSQL_USER is not set}"
+: "${MYSQL_USER:?MYSQL_USER is not set}"
 
 DB_PASSWORD="$(cat /run/secrets/db_password)"
 DB_ROOT_PASSWORD="$(cat /run/secrets/db_root_password)"

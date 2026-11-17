@@ -33,7 +33,6 @@ fclean:
 	docker run --rm -v $(DATA_DIR):/data debian:bookworm \
 		sh -c 'rm -rf /data/mariadb /data/wordpress'
 
-re:
-	fclean all
+re: fclean all
 
 .PHONY: all up dirs down stop start ps logs clean fclean re

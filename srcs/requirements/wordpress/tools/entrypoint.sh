@@ -8,7 +8,7 @@ set -e
 : "${WP_TITLE:?WP_TITLE is not set}"
 : "${WP_ADMIN_USER:?WP_ADMIN_USER is not set}"
 : "${WP_ADMIN_EMAIL:?WP_ADMIN_EMAIL is not set}"
-: "${WP_USER:?WP)_USER is not set}"
+: "${WP_USER:?WP_USER is not set}"
 : "${WP_USER_EMAIL:?WP_USER_EMAIL is not set}"
 
 case "$WP_ADMIN_USER" in
